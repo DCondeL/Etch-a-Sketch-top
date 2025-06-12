@@ -1,0 +1,24 @@
+body {
+	width: 100dvw;
+	height: 100dvh;
+	display: flex;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	flex-grow: 1;
+}
+
+.row-container {
+	display: flex;
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+
+.square {
+	border: 5px solid red;
+	flex-grow: 1;
+	flex-shrink: 1;
+}
