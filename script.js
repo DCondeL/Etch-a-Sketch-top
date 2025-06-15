@@ -1,36 +1,49 @@
 let container = document.querySelector(".container");
 
-function createSquares(numSquares) {
-	let squareList = new Array(numSquares);
+const GRIDSIZE = 12;
+createGrid();
 
-	for (let i = 0; i < numSquares; i++) {
+function createSquares() {
+	let squaresFrag = new DocumentFragment();
+
+	for (let i = 0; i < GRIDSIZE; i++) {
 		let square = document.createElement("div");
 		square.classList.add("square");
-		squareList.push(square);
+		squaresFrag.appendChild(square);
 	}
 
-	return squareList;
+	return squaresFrag;
 }
 
-function createRowContainer(squares) {
-	let rowContainer = document.createElement("div");
-	rowContainer.classList.add("row-container");
-	let docFrag = new DocumentFragment();
-
-	if (Array.isArray(squares)) {
-		squares.forEach((element) => docFrag.appendChild(element));
+function createRows() {
+	let rows = new DocumentFragment();
+	for (let i = 0; i < GRIDSIZE; i++) {
+		let rowContainer = document.createElement("div");
+		rowContainer.classList.add("row-container");
+		rows.appendChild(rowContainer);
 	}
 
-	rowContainer.appendChild(docFrag);
+	return rows;
+}
 
-	return rowContainer;
+function addSquaresToRows(rows) {
+	let rowsArr = Array.from(rows.children);
+	let gridFrag = new DocumentFragment();
+
+	rowsArr.forEach((row) => {
+		let squares = createSquares();
+		row.appendChild(squares);
+		gridFrag.appendChild(row);
+	});
+
+	return gridFrag;
 }
 
 function createGrid() {
-	const GRIDSIZE = 12;
-	let squares = createSquares(GRIDSIZE);
-	let row = createRowContainer(squares);
-	container.appendChild(row);
+	let rows = createRows();
+	let grid = addSquaresToRows(rows);
+
+	container.appendChild(grid);
 }
 
 createGrid();
