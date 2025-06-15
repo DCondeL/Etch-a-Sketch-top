@@ -1,8 +1,3 @@
-let container = document.querySelector(".container");
-
-const GRIDSIZE = 3;
-createGrid();
-
 function createSquares() {
 	let squaresFrag = new DocumentFragment();
 
@@ -10,7 +5,6 @@ function createSquares() {
 		let square = document.createElement("div");
 		square.classList.add("square");
 		squaresFrag.appendChild(square);
-		console.log(squaresFrag);
 	}
 
 	return squaresFrag;
@@ -46,3 +40,18 @@ function createGrid() {
 
 	container.appendChild(grid);
 }
+
+function paint(e) {
+	let target = e.target;
+	if (target.classList.contains("painted")) {
+		return;
+	}
+
+	target.classList.add("painted");
+}
+
+let container = document.querySelector(".container");
+
+const GRIDSIZE = 120;
+createGrid();
+container.addEventListener("mousemove", paint);
