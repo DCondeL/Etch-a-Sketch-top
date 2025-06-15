@@ -1,34 +1,34 @@
 let container = document.querySelector(".container");
 
-/*function createSquares(numSquares) {
+function createSquares(numSquares) {
 	let squareList = new Array(numSquares);
 
-	let square = document.createElement("div");
-	square.classList.add("square");
-
-	squareList.fill(square);
+	for (let i = 0; i < numSquares; i++) {
+		let square = document.createElement("div");
+		square.classList.add("square");
+		squareList.push(square);
+	}
 
 	return squareList;
-}*/
+}
 
-function createRowContainer(numSquares) {
+function createRowContainer(squares) {
 	let rowContainer = document.createElement("div");
 	rowContainer.classList.add("row-container");
+	let docFrag = new DocumentFragment();
 
 	if (Array.isArray(squares)) {
-		squares.reduce((acc, value) => {
-			acc = value;
-			rowContainer.appendChild(acc);
-			console.log("RowCont:" + rowContainer.childElementCount);
-		});
+		squares.forEach((element) => docFrag.appendChild(element));
 	}
+
+	rowContainer.appendChild(docFrag);
 
 	return rowContainer;
 }
 
 function createGrid() {
-	const NUMSQUARES = 16;
-	let squares = createSquares(NUMSQUARES);
+	const GRIDSIZE = 12;
+	let squares = createSquares(GRIDSIZE);
 	let row = createRowContainer(squares);
 	container.appendChild(row);
 }
