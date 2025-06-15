@@ -1,6 +1,6 @@
 let container = document.querySelector(".container");
 
-const GRIDSIZE = 12;
+const GRIDSIZE = 3;
 createGrid();
 
 function createSquares() {
@@ -10,6 +10,7 @@ function createSquares() {
 		let square = document.createElement("div");
 		square.classList.add("square");
 		squaresFrag.appendChild(square);
+		console.log(squaresFrag);
 	}
 
 	return squaresFrag;
@@ -45,5 +46,3 @@ function createGrid() {
 
 	container.appendChild(grid);
 }
-
-createGrid();
