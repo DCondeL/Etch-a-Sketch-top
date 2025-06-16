@@ -51,7 +51,19 @@ function paint(e) {
 }
 
 let container = document.querySelector(".container");
+let openModalBtn = document.querySelector("#open-reset-modal-btn");
+let modalWindow = document.querySelector(".modal");
+let closeModalBtn = document.querySelector("#close-container button");
 
 const GRIDSIZE = 120;
 createGrid();
 container.addEventListener("mousemove", paint);
+openModalBtn.addEventListener(
+	"click",
+	(ev) => (modalWindow.style.display = "flex")
+);
+
+closeModalBtn.addEventListener(
+	"click",
+	(ev) => (modalWindow.style.display = "none")
+);

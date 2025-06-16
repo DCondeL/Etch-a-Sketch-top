@@ -8,7 +8,23 @@
 		<script src="script.js" defer></script>
 	</head>
 	<body>
-		<div class="button-container"></div>
+		<div class="button-container">
+			<button id="open-reset-modal-btn">Reset grid</button>
+		</div>
 		<div class="container"></div>
+		<div class="modal">
+			<div class="modal-content">
+				<div id="close-container">
+					<button>X</button>
+				</div>
+				<div>
+					<label for="grid-size">Set the Grid Size</label>
+					<input id="grid-size" class="grid-size-input" />
+				</div>
+				<div>
+					<button id="reset-btn">Reset</button>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
