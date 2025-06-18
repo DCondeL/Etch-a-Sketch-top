@@ -91,8 +91,9 @@ button {
 .square {
 	flex-grow: 1;
 	flex-shrink: 1;
+	border: solid red;
 }
 
 .painted {
-	background-color: black;
+	background-color: transparent;
 }
